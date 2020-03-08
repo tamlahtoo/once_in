@@ -1,5 +1,4 @@
 		<div class="header">
-			
 			<div class="container">
 				<div class="header-left">
 					<div class="w3layouts-logo">
@@ -33,9 +32,7 @@
 								<li><a class="<?php if(basename($_SERVER['PHP_SELF'])=="gallery.php"){echo('active');}; ?>" href="gallery.php">Jewelery</a></li>
 								<li><a class="<?php if(basename($_SERVER['PHP_SELF'])=="blog.php"){echo('active');}; ?>" href="blog.php">Blog</a></li>
 								<li><a class="<?php if(basename($_SERVER['PHP_SELF'])=="contact.php"){echo('active');}; ?>" href="contact.php">Contact</a></li>
-
 							</ul>	
-
 							<div class="clearfix"> </div>
 						</div>	
 					</nav>		

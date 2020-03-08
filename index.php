@@ -38,8 +38,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script> 
 </head>
 <body>
+	<a class="" style="position: absolute;margin-left: 95%;margin-top: 10px;color: gray" href="admin.php"><i class="glyphicon glyphicon-user">Admin</i></a>
+
 	<!-- banner -->
 	<div class="banner">
+
 		<?php include 'includes/header.php'?>	
 
 		<div class="w3layouts-banner-slider">

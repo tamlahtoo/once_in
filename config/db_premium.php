@@ -17,11 +17,13 @@ $guest = mysqli_real_escape_string($link, $_REQUEST['guest']);
 $music = mysqli_real_escape_string($link, $_REQUEST['music']); 
 $date1 = strtr($_REQUEST['date'], '/', '-');
 $date2 = date('Y-m-d', strtotime($date1));
+$name = mysqli_real_escape_string($link, $_REQUEST['name']); 
+$phone = mysqli_real_escape_string($link, $_REQUEST['phone']); 
 
 
 
 // Attempt insert query execution
-$sql = "INSERT INTO premium (gown, suit, room, floral, guest, music, date) VALUES ('$gown', '$suit', '$room','$floral', $guest, '$music', '$date2')";
+$sql = "INSERT INTO premium (gown, suit, room, floral, guest, music, date,name,phone) VALUES ('$gown', '$suit', '$room','$floral', $guest, '$music', '$date2','$name','$phone')";
 if(mysqli_query($link, $sql)){
 	echo "successful";
     header('Location: ../index.php');

@@ -4,6 +4,24 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+
+<?php
+include 'config/database.php';
+
+$sql = 'SELECT * FROM posts';
+
+$result = mysqli_query($link, $sql);
+
+$standards = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+
+foreach ($standards as $item) {
+		$created = date_parse($item['created_at']);
+		$year =($created['year']);
+	}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,78 +70,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="w3layouts-news">
 						<div class="agile-its-news-grid">
 							<div class="col-md-8 w3ls-blog-left">
+								<?php
+								foreach ($standards as $item) {
+									$created = $item['created_at'];
+									$year =date("Y",strtotime($created));
+									$day =date("d",strtotime($created));
+									$month =date("F",strtotime($created));
+									$text = $item['text'];
+
+
+
+								?>
 								<div class="w3-blog-left-grid">
 									<div class="w3ls-blog-leftl">
-										<h4>NOV <span>15</span></h4>
-										<a href="#"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i>10</a>
+										<h4><?php echo "$month"; ?> <span><?php echo "$day"; ?></span></h4>
+										<a href="#"><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i><?php echo "$year"; ?> </a>
 									</div>
 									<div class="w3ls-blog-leftr">
 										<a href="single.html"><img src="images/p1.jpg" alt=" " class="img-responsive" /></a>
-										<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-										sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-										Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-										nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-										reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-										pariatur</p>
-										<ul>
-											<li><a href="#"><i class="glyphicon glyphicon-user" aria-hidden="true"></i>User Name</a></li>
-											<li><a href="#"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i>0 Tags</a></li>
-											<li><a href="#"><i class="glyphicon glyphicon-comment" aria-hidden="true"></i>10 Comments</a></li>
-										</ul>
+										<p><?php echo substr($text, 0, 200); ?>.....</p>
+										
+										<br>
 										<div class="more">
 											<a href="single.html">Read More</a>
 										</div>
 									</div>
 									<div class="clearfix"> </div>
 								</div>
-								<div class="w3-blog-left-grid">
-									<div class="w3ls-blog-leftl">
-										<h4>SEPT <span>24</span></h4>
-										<a href="#"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i>10</a>
-									</div>
-									<div class="w3ls-blog-leftr">
-										<a href="single.html"><img src="images/p2.jpg" alt=" " class="img-responsive" /></a>
-										<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-										sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-										Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-										nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-										reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-										pariatur</p>
-										<ul>
-											<li><a href="#"><i class="glyphicon glyphicon-user" aria-hidden="true"></i>User Name</a></li>
-											<li><a href="#"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i>0 Tags</a></li>
-											<li><a href="#"><i class="glyphicon glyphicon-comment" aria-hidden="true"></i>10 Comments</a></li>
-										</ul>
-										<div class="more">
-											<a href="single.html">Read More</a>
-										</div>
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-								<div class="w3-blog-left-grid">
-									<div class="w3ls-blog-leftl">
-										<h4>OCT <span>25</span></h4>
-										<a href="#"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i>10</a>
-									</div>
-									<div class="w3ls-blog-leftr">
-										<a href="single.html"><img src="images/p3.jpg" alt=" " class="img-responsive" /></a>
-										<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-										sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-										Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-										nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-										reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-										pariatur</p>
-										<ul>
-											<li><a href="#"><i class="glyphicon glyphicon-user" aria-hidden="true"></i>User Name</a></li>
-											<li><a href="#"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i>0 Tags</a></li>
-											<li><a href="#"><i class="glyphicon glyphicon-comment" aria-hidden="true"></i>10 Comments</a></li>
-										</ul>
-										<div class="more">
-											<a href="single.html">Read More</a>
-										</div>
-									</div>
-									<div class="clearfix"> </div>
-								</div>
+
+							<?php }
+							?>
+								
 								
 						<nav>
 							<ul class="pagination page-blog">

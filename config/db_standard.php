@@ -16,11 +16,13 @@ $floral = mysqli_real_escape_string($link, $_REQUEST['floral']);
 $guest = mysqli_real_escape_string($link, $_REQUEST['guest']); 
 $date1 = strtr($_REQUEST['date'], '/', '-');
 $date2 = date('Y-m-d', strtotime($date1));
+$name = mysqli_real_escape_string($link, $_REQUEST['name']); 
+$phone = mysqli_real_escape_string($link, $_REQUEST['phone']); 
 
 
 
 // Attempt insert query execution
-$sql = "INSERT INTO standard (gown, suit, room, floral, guest, date) VALUES ('$gown', '$suit', '$room','$floral', $guest, '$date2')";
+$sql = "INSERT INTO standard (gown, suit, room, floral, guest, date, name,phone) VALUES ('$gown', '$suit', '$room','$floral', $guest, '$date2','$name','$phone')";
 if(mysqli_query($link, $sql)){
 	echo "successful";
     header('Location: ../index.php');

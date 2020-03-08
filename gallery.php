@@ -80,9 +80,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<img src="images/g2.jpg" alt=" " class="img-responsive" />
 							<div class="view-caption">
 								<p>Full View</p>
+								<label>
+							<input type="radio" name="jewelry">
+							<button class="btn2">Hi</button>
+						</label>
 							</div> 
-						</a>    			
+						</a>  
+
 					</div>
+					
 				</div>
 				<div class="col-md-4 gallery-grid">
 					<div class="wpf-demo-4">  
