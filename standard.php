@@ -4,6 +4,28 @@
 	License: Creative Commons Attribution 3.0 Unported
 	License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+
+<?php
+include 'config/database.php';
+
+$sql = 'SELECT * FROM gown where package ="standard"' ;
+$sql1 = 'SELECT * FROM suit where package ="standard"' ;
+$sql2 = 'SELECT * FROM room where package ="standard"' ;
+$sql3 = 'SELECT * FROM floral where package ="standard"' ;
+
+$result = mysqli_query($link, $sql);
+$result1 = mysqli_query($link, $sql1);
+$result2 = mysqli_query($link, $sql2);
+$result3 = mysqli_query($link, $sql3);
+
+$gowns = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$suits = mysqli_fetch_all($result1, MYSQLI_ASSOC);
+$rooms = mysqli_fetch_all($result2, MYSQLI_ASSOC);
+$florals = mysqli_fetch_all($result3, MYSQLI_ASSOC);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,141 +113,156 @@
 		<div class="container"> 
 			<div class="grid_3 grid_4 w3_agileits_icons_page">
 				<div class="icons">
-					<h3 class="agileits-icons-title" >Click to choose</h3>
 					<!-- //still adduser.php -->
 							<!-- 	<div id="popup">
 									<h3>Record added successfully</h3>
 								</div> -->
 								<form action="config/db_standard.php" method="post">
-									<section id="new">
-										<h3 class="page-header page-header icon-subheading">Gown</h3>							  
 
+									<!-- where gown start -->
+									<section id="new">														  
 										<div class="row fontawesome-icon-list">
-											<label style="padding-right: 30px">
+											<h2 style="text-align: center;" class="page-header page-header icon-subheading">Gown</h2>	
+											<?php foreach ($gowns as $gown) {?>
+											<div style="-webkit-box-shadow: -1px 12px 32px -4px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px 12px 32px -4px rgba(0,0,0,0.75);
+box-shadow: -1px 12px 32px -4px rgba(0,0,0,0.75);margin-top:40px;margin-left: 2%;margin-right: 14%;position: relative;float: left;width: 150px;text-align: center;background-color: gray;height: 350px;width: 200px">
 												
-												<input type="radio" name="gown" value="gown1" checked>
 												
-												<img src="https://www.everafterguide.com/s/upload/images/2016/07/dcecc5c95eae4f5ac791fed9970cbca1.jpg">
-												<h4>Bloddy gown</h4>
-												<h4>Bloddy gown</h4>
-												<h4>Bloddy gown</h4>
-											</label>
+
+													<img style="height: 300px;width: 100%" src="<?php echo($gown['image_link']);?>"  >
+													<div style="height: 500px;color: pink;width: 100%">
+														<label ><input style="margin-top: 10px;margin-right: 20px" type="radio" name="gown" value="<?php echo($gown['id']);?>" checked>
+															<p style="position: relative;float: left;color: white;margin-top: 6px;">  <?php echo($gown['text']);?></p></label>
+														</div>
+													</div>
+
+												<?php } ?>						
+											</section>
+
+											<!-- This is where the suit start -->
+											<section id="new">														  
+										<div class="row fontawesome-icon-list">
+											<h2 style="text-align: center;" class="page-header page-header icon-subheading">Gown</h2>	
+											<?php foreach ($suits as $suit) {?>
+											<div style="-webkit-box-shadow: -1px 12px 32px -4px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px 12px 32px -4px rgba(0,0,0,0.75);
+box-shadow: -1px 12px 32px -4px rgba(0,0,0,0.75);margin-top:40px;margin-left: 2%;margin-right: 14%;position: relative;float: left;width: 150px;text-align: center;background-color: gray;height: 350px;width: 200px">
+												
+												
+
+													<img style="height: 300px;width: 100%" src="<?php echo($suit['image_link']);?>"  >
+													<div style="height: 500px;color: pink;width: 100%">
+														<label ><input style="margin-top: 10px;margin-right: 20px" type="radio" name="suit" value="<?php echo($suit['id']);?>" checked>
+															<p style="position: relative;float: left;color: white;margin-top: 6px;">  <?php echo($suit['text']);?></p></label>
+														</div>
+													</div>
+
+												<?php } ?>						
+											</section>
+
+											<!-- This is room start -->
+
+											<section id="new">														  
+										<div class="row fontawesome-icon-list">
+											<h2 style="text-align: center;" class="page-header page-header icon-subheading">Ballrooms</h2>	
+											<?php foreach ($rooms as $room) {?>
+											<div style="-webkit-box-shadow: -1px 12px 32px -4px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px 12px 32px -4px rgba(0,0,0,0.75);
+box-shadow: -1px 12px 32px -4px rgba(0,0,0,0.75);margin-top:40px;margin-left: 2%;margin-right: 14%;position: relative;float: left;width: 150px;text-align: center;background-color: gray;height: 350px;width: 200px">
+												
+												
+
+													<img style="height: 300px;width: 100%" src="<?php echo($room['image_link']);?>"  >
+													<div style="height: 500px;color: pink;width: 100%">
+														<label ><input style="margin-top: 10px;margin-right: 20px" type="radio" name="room" value="<?php echo($room['id']);?>" checked>
+															<p style="position: relative;float: left;color: white;margin-top: 6px;">  <?php echo($room['text']);?></p></label>
+														</div>
+													</div>
+
+												<?php } ?>						
+											</section>
+
+											<!-- this is floral start -->
+
+											<section id="new">														  
+										<div class="row fontawesome-icon-list">
+											<h2 style="text-align: center;" class="page-header page-header icon-subheading">Ballrooms</h2>	
+											<?php foreach ($florals as $floral) {?>
+											<div style="-webkit-box-shadow: -1px 12px 32px -4px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px 12px 32px -4px rgba(0,0,0,0.75);
+box-shadow: -1px 12px 32px -4px rgba(0,0,0,0.75);margin-top:40px;margin-left: 2%;margin-right: 14%;position: relative;float: left;width: 150px;text-align: center;background-color: gray;height: 350px;width: 200px">
+												
+												
+
+													<img style="height: 300px;width: 100%" src="<?php echo($floral['image_link']);?>"  >
+													<div style="height: 500px;color: pink;width: 100%">
+														<label ><input style="margin-top: 10px;margin-right: 20px" type="radio" name="floral" value="<?php echo($floral['id']);?>" checked>
+															<p style="position: relative;float: left;color: white;margin-top: 6px;">  <?php echo($floral['text']);?></p></label>
+														</div>
+													</div>
+
+												<?php } ?>						
+											</section>
 
 
-											<label style="padding-right: 30px">
-												<input type="radio" name="gown" value="gown2">
-												<img src="https://media.glamour.com/photos/5696dbcbfbaa9ddf58557a67/master/w_1280,c_limit/weddings-2015-10-gown-02-front-main.jpg">
-												<h4>Bloddy gown</h4>
-												<h4>Bloddy gown</h4>
-												<h4>Bloddy gown</h4>
-											</label>
-										</section>
+											<!-- Floral ends -->
 
-										<section id="new">
-											<h3 class="page-header page-header icon-subheading">Suit</h3>							  
 
-											<div class="row fontawesome-icon-list">
-												<label style="padding-right: 30px">
-													<input type="radio" name="suit" value="suit1" checked>
-													<img src="https://www.jimsformalwear.com/images/1280x1920/wedding-suit-black-michael-kors-sterling-471-2.jpg">
-												</label>
+											<section id="new">
+												<h3 class="page-header page-header icon-subheading">Guests Numbers</h3>							  
 
-												<label style="padding-right: 30px">
-													<input type="radio" name="suit" value="suit2">
-													<img src="https://www.tom-murphy.ie/wp-content/uploads/2017/02/after-six-look2-464200-30.jpg">
-												</label>
-											</div>
+												<div class="row fontawesome-icon-list">
+													<select id="cars" name="guest" style="height: 40px;width: 200px;color: gray">
+														<option value="50">50</option>
+														<option value="100">100</option>
+														<option value="150">150</option>
+														<option value="200">200</option>
+													</select>
+												</div>
 
-										</section>
+											</section>
+											<h3 class="page-header page-header icon-subheading">Photography</h3>
+											<p>Photography of 100 pictures Included</p>		
+											<section id="new">
+												<h3 class="page-header page-header icon-subheading">Choose Date</h3>							  
 
-										<section id="new">
-											<h3 class="page-header page-header icon-subheading">Ballroom</h3>							  
+												<div class="row fontawesome-icon-list">
+													<input type="date" name="date">
+												</div>
 
-											<div class="row fontawesome-icon-list">
-												<label style="padding-right: 30px">
-													<input type="radio" name="room" value="room1" checked>
-													<img src="https://d1zpvjny0s6omk.cloudfront.net/media/cache/f4/ce/f4cec471a95b7dcd5a3908bcafa43cb7.jpg">
-												</label>
+											</section>	
 
-												<label style="padding-right: 30px">
-													<input type="radio" name="room" value="room2">
-													<img src="http://cdn1.projectwedding.com/1375617831_1368789527_REAL-WEDDING_Jessica-and-Michael-Winters_21.jpg">
-												</label>
-											</div>
-
-										</section>
-
-										<section id="new">
-											<h3 class="page-header page-header icon-subheading">Floral</h3>							  
-
-											<div class="row fontawesome-icon-list">
-												<label style="padding-right: 30px">
-													<input type="radio" name="floral" value="floral1" checked>
-													<img src="http://2.bp.blogspot.com/-j4D1cA61qYc/T_XgQWO2HbI/AAAAAAAALkE/jx2gvccIzRA/s1600/wedding-bouquet-17.jpg">
-												</label>
-
-												<label style="padding-right: 30px">
-													<input type="radio" name="floral" value="floral2">
-													<img src="http://4.bp.blogspot.com/-w9pCYqC4r3I/UscEprLJtCI/AAAAAAAAhX4/kpFAR3dAJ_I/s1600/wedding-bouquet-20b.jpg">
-												</label>
-
-											</div>
-
-										</section>
-										<section id="new">
-											<h3 class="page-header page-header icon-subheading">Guests Numbers</h3>							  
-
-											<div class="row fontawesome-icon-list">
-												<select id="cars" name="guest" style="height: 40px;width: 200px;color: gray">
-													<option value="50">50</option>
-													<option value="100">100</option>
-													<option value="150">150</option>
-													<option value="200">200</option>
-												</select>
-											</div>
-
-										</section>
-										<h3 class="page-header page-header icon-subheading">Photography</h3>
-										<p>Photography of 100 pictures Included</p>		
-										<section id="new">
-											<h3 class="page-header page-header icon-subheading">Choose Date</h3>							  
-
-											<div class="row fontawesome-icon-list">
-												<input type="date" name="date">
-											</div>
-
-										</section>	
-
-										<section id="new">
-											<h3 class="page-header page-header icon-subheading">Your Info</h3>
-											<div class="agileinfo-contact-form-grid" style="width: 300px">
+											<section id="new">
+												<h3 class="page-header page-header icon-subheading">Your Info</h3>
+												<div class="agileinfo-contact-form-grid" style="width: 300px">
 													<input type="text" name="name" placeholder="Name" required="">
 													<input type="text" name="phone" placeholder="Phone" required="">
-											</div>
-											
-											
-										</section>
+												</div>
 
-										<div style="height: 200px"></div>								
-										<button class="btn1" >Book</button>
-									</form>
 
+											</section>
+
+											<div style="height: 200px"></div>								
+											<button class="btn1" >Book</button>
+										</form>
+
+									</div>
 								</div>
-							</div>
 
 
-						</div>	
-					</div>
-					<!-- //icons -->
-					<!-- footer -->
+							</div>	
+						</div>
+						<!-- //icons -->
+						<!-- footer -->
 
-					<!-- //footer -->
-					<script src="js/SmoothScroll.min.js"></script>
-					<script type="text/javascript" src="js/move-top.js"></script>
-					<script type="text/javascript" src="js/easing.js"></script>
-					<!-- here stars scrolling icon -->
-					<script type="text/javascript">
-						$(document).ready(function() {
+						<!-- //footer -->
+						<script src="js/SmoothScroll.min.js"></script>
+						<script type="text/javascript" src="js/move-top.js"></script>
+						<script type="text/javascript" src="js/easing.js"></script>
+						<!-- here stars scrolling icon -->
+						<script type="text/javascript">
+							$(document).ready(function() {
 				/*
 					var defaults = {
 					containerID: 'toTop', // fading element id

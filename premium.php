@@ -4,6 +4,31 @@
 	License: Creative Commons Attribution 3.0 Unported
 	License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<?php
+include 'config/database.php';
+
+$sql = 'SELECT * FROM gown where package ="premium"' ;
+$sql1 = 'SELECT * FROM suit where package ="premium"' ;
+$sql2 = 'SELECT * FROM room where package ="premium"' ;
+$sql3 = 'SELECT * FROM floral where package ="premium"' ;
+$sql4 = 'SELECT * FROM music where package ="premium"' ;
+
+$result = mysqli_query($link, $sql);
+$result1 = mysqli_query($link, $sql1);
+$result2 = mysqli_query($link, $sql2);
+$result3 = mysqli_query($link, $sql3);
+$result4 = mysqli_query($link, $sql4);
+
+$gowns = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$suits = mysqli_fetch_all($result1, MYSQLI_ASSOC);
+$rooms = mysqli_fetch_all($result2, MYSQLI_ASSOC);
+$florals = mysqli_fetch_all($result3, MYSQLI_ASSOC);
+$musics = mysqli_fetch_all($result4, MYSQLI_ASSOC);
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -97,109 +122,101 @@
 									<h3>Record added successfully</h3>
 								</div> -->
 								<form action="config/db_premium.php" method="post">
-									<section id="new">
-										<h3 class="page-header page-header icon-subheading">Gown</h3>							  
-
+									
+									<!-- where gown start -->
+									<section id="new">														  
 										<div class="row fontawesome-icon-list">
-											<label style="padding-right: 30px">
-												<input type="radio" name="gown" value="gown1" checked>
-												<img src="https://ae01.alicdn.com/kf/HTB16aCiIQCWBuNjy0Faq6xUlXXa2/LORIE-Little-Mermaid-Wedding-Dress-Beach-2018-Vestido-de-novia-Sexy-Bridal-Dress-High-Side-Split.jpg_q50.jpg">
-											</label>
+											<h2 style="text-align: center;" class="page-header page-header icon-subheading">Gown</h2>	
+											<?php foreach ($gowns as $gown) {?>
+											<div style="-webkit-box-shadow: -1px 12px 32px -4px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px 12px 32px -4px rgba(0,0,0,0.75);
+box-shadow: -1px 12px 32px -4px rgba(0,0,0,0.75);margin-top:40px;margin-left: 2%;margin-right: 14%;position: relative;float: left;width: 150px;text-align: center;background-color: gray;height: 350px;width: 200px">
+												
+												
 
-											<label style="padding-right: 30px">
-												<input type="radio" name="gown" value="gown2">
-												<img src="https://www.kleinfeldbridal.com/wp-content/uploads/2018/05/maison-signore-sexy-beaded-deep-v-neck-bodice-and-silk-skirt-wedding-dress-33716101.jpg">
-											</label>
-											<label style="padding-right: 30px">
-												<input type="radio" name="gown" value="gown3">
-												<img src="https://sc02.alicdn.com/kf/HTB1dqCdh2MTUeJjSZFKq6ygopXa8/Hot-sexy-wedding-dress-White-Beauty-Women.jpg_350x350.jpg">
-											</label>
-											<label style="padding-right: 30px">
-												<input type="radio" name="gown" value="gown4">
-												<img src="https://i.pinimg.com/originals/ac/96/51/ac96510fdca1a035b19dbf0875d1b2a8.jpg">
-											</label>
-										</div>
-									</section>
+													<img style="height: 300px;width: 100%" src="<?php echo($gown['image_link']);?>"  >
+													<div style="height: 500px;color: pink;width: 100%">
+														<label ><input style="margin-top: 10px;margin-right: 20px" type="radio" name="gown" value="<?php echo($gown['id']);?>" checked>
+															<p style="position: relative;float: left;color: white;margin-top: 6px;">  <?php echo($gown['text']);?></p></label>
+														</div>
+													</div>
 
-									<section id="new">
-										<h3 class="page-header page-header icon-subheading">Suit</h3>							  
+												<?php } ?>						
+											</section>
 
+											<!-- This is where the suit start -->
+											<section id="new">														  
 										<div class="row fontawesome-icon-list">
-											<label style="padding-right: 30px">
-												<input type="radio" name="suit" value="suit1" checked>
-												<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.XJRSCQeFICm5K5B81rGi4AHaKl%26pid%3DApi&f=1">
-											</label>
+											<h2 style="text-align: center;" class="page-header page-header icon-subheading">Suit</h2>	
+											<?php foreach ($suits as $suit) {?>
+											<div style="-webkit-box-shadow: -1px 12px 32px -4px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px 12px 32px -4px rgba(0,0,0,0.75);
+box-shadow: -1px 12px 32px -4px rgba(0,0,0,0.75);margin-top:40px;margin-left: 2%;margin-right: 14%;position: relative;float: left;width: 150px;text-align: center;background-color: gray;height: 350px;width: 200px">
+												
+												
 
-											<label style="padding-right: 30px">
-												<input type="radio" name="suit" value="suit2">
-												<img src="https://www.leatherjacketblack.com/wp-content/uploads/2020/01/James-Bond-Skyfall-Charcoal-Grey-Suit.jpg">
-											</label>
-											<label style="padding-right: 30px">
-												<input type="radio" name="suit" value="suit3">
-												<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F00%2F1e%2F07%2F001e0742998ce6805cee6baeb1880e02.jpg&f=1&nofb=1">
-											</label>
-											<label style="padding-right: 30px">
-												<input type="radio" name="suit" value="suit4">
-												<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F97%2F8d%2F9e%2F978d9ea1b33973dc65a246a7465ee781.jpg&f=1&nofb=1">
-											</label>
-										</div>
+													<img style="height: 300px;width: 100%" src="<?php echo($suit['image_link']);?>"  >
+													<div style="height: 500px;color: pink;width: 100%">
+														<label ><input style="margin-top: 10px;margin-right: 20px" type="radio" name="suit" value="<?php echo($suit['id']);?>" checked>
+															<p style="position: relative;float: left;color: white;margin-top: 6px;">  <?php echo($suit['text']);?></p></label>
+														</div>
+													</div>
 
-									</section>
+												<?php } ?>						
+											</section>
 
-									<section id="new">
-										<h3 class="page-header page-header icon-subheading">Ballroom</h3>							  
+											<!-- This is room start -->
 
+											<section id="new">														  
 										<div class="row fontawesome-icon-list">
-											<label style="padding-right: 30px">
-												<input type="radio" name="room" value="room1" checked>
-												<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.3zRyfoDDkp6h_w-lSsz2NgHaE7%26pid%3DApi&f=1">
-											</label>
+											<h2 style="text-align: center;" class="page-header page-header icon-subheading">Ballrooms</h2>	
+											<?php foreach ($rooms as $room) {?>
+											<div style="-webkit-box-shadow: -1px 12px 32px -4px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px 12px 32px -4px rgba(0,0,0,0.75);
+box-shadow: -1px 12px 32px -4px rgba(0,0,0,0.75);margin-top:40px;margin-left: 2%;margin-right: 14%;position: relative;float: left;width: 150px;text-align: center;background-color: gray;height: 350px;width: 200px">
+												
+												
 
-											<label style="padding-right: 30px">
-												<input type="radio" name="room" value="room2">
-												<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.h5p6X4-mixlKqbsAUtodVwHaE8%26pid%3DApi&f=1">
-											</label>
-											<label style="padding-right: 30px">
-												<input type="radio" name="room" value="room3">
-												<img src="http://www.bridebox.com/blog/wp-content/uploads/2014/07/beach-wedding-venue.jpg">
-											</label>
-											<label style="padding-right: 30px">
-												<input type="radio" name="room" value="room4">
-												<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.lwLV5t5D2yvcDI4CeSJdoQHaEK%26pid%3DApi&f=1">
-											</label>
+													<img style="height: 300px;width: 100%" src="<?php echo($room['image_link']);?>"  >
+													<div style="height: 500px;color: pink;width: 100%">
+														<label ><input style="margin-top: 10px;margin-right: 20px" type="radio" name="room" value="<?php echo($room['id']);?>" checked>
+															<p style="position: relative;float: left;color: white;margin-top: 6px;">  <?php echo($room['text']);?></p></label>
+														</div>
+													</div>
 
-										</div>
+												<?php } ?>						
+											</section>
 
-									</section>
+											<!-- this is floral start -->
 
-									<section id="new">
-										<h3 class="page-header page-header icon-subheading">Floral</h3>							  
-
+											<section id="new">														  
 										<div class="row fontawesome-icon-list">
-											<label style="padding-right: 30px">
-												<input type="radio" name="floral" value="floral1" checked>
-												<img src="http://2.bp.blogspot.com/-j4D1cA61qYc/T_XgQWO2HbI/AAAAAAAALkE/jx2gvccIzRA/s1600/wedding-bouquet-17.jpg">
-											</label>
+											<h2 style="text-align: center;" class="page-header page-header icon-subheading">Floral</h2>	
+											<?php foreach ($florals as $floral) {?>
+											<div style="-webkit-box-shadow: -1px 12px 32px -4px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px 12px 32px -4px rgba(0,0,0,0.75);
+box-shadow: -1px 12px 32px -4px rgba(0,0,0,0.75);margin-top:40px;margin-left: 2%;margin-right: 14%;position: relative;float: left;width: 150px;text-align: center;background-color: gray;height: 350px;width: 200px">
+												
+												
 
-											<label style="padding-right: 30px">
-												<input type="radio" name="floral" value="floral2">
-												<img src="http://4.bp.blogspot.com/-w9pCYqC4r3I/UscEprLJtCI/AAAAAAAAhX4/kpFAR3dAJ_I/s1600/wedding-bouquet-20b.jpg">
-											</label>
-											<label style="padding-right: 30px">
-												<input type="radio" name="floral" value="floral3">
-												<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.0gXW1l9xQHLhoApeSyGKFAHaLH%26pid%3DApi&f=1">
-											</label>
-											<label style="padding-right: 30px">
-												<input type="radio" name="floral" value="floral4">
-												<img src="https://ditsyfloral.files.wordpress.com/2015/02/img_48194294347408.jpeg">
-											</label>
-											<label style="padding-right: 30px">
-												<input type="radio" name="floral" value="floral5">
-												<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.diytomake.com%2Fwp-content%2Fuploads%2F2017%2F01%2FNice-Flower-Bouquet.jpg&f=1&nofb=1">
-											</label>
-										</div>
+													<img style="height: 300px;width: 100%" src="<?php echo($floral['image_link']);?>"  >
+													<div style="height: 500px;color: pink;width: 100%">
+														<label ><input style="margin-top: 10px;margin-right: 20px" type="radio" name="floral" value="<?php echo($floral['id']);?>" checked>
+															<p style="position: relative;float: left;color: white;margin-top: 6px;">  <?php echo($floral['text']);?></p></label>
+														</div>
+													</div>
 
-									</section>
+												<?php } ?>						
+											</section>
+
+
+											<!-- Floral ends -->
+
+
+
+
+
+
 									<section id="new">
 										<h3 class="page-header page-header icon-subheading">Guests Numbers</h3>							  
 
@@ -215,30 +232,30 @@
 									</section>
 									<h3 class="page-header page-header icon-subheading">Photography</h3>
 									<p>Photography of 100 pictures Included</p>		
-									<section id="new">
-										<h3 class="page-header page-header icon-subheading">Music</h3>							  
+									
 
+									<!-- Music -->
+									<section id="new">														  
 										<div class="row fontawesome-icon-list">
-											<label style="padding-right: 30px">
-												<input type="radio" name="music" value="music1" checked>
-												<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FyKsgiEpAsbY%2Fmaxresdefault.jpg&f=1&nofb=1">
-											</label>
+											<h2 style="text-align: center;" class="page-header page-header icon-subheading">Music</h2>	
+											<?php foreach ($musics as $music) {?>
+											<div style="-webkit-box-shadow: -1px 12px 32px -4px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px 12px 32px -4px rgba(0,0,0,0.75);
+box-shadow: -1px 12px 32px -4px rgba(0,0,0,0.75);margin-top:40px;margin-left: 2%;margin-right: 14%;position: relative;float: left;width: 150px;text-align: center;background-color: gray;height: 350px;width: 200px">
+												
+												
 
-											<label style="padding-right: 30px">
-												<input type="radio" name="music" value="music2">
-												<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F3%2F31%2FAthleteBandApril2008.jpg%2F1200px-AthleteBandApril2008.jpg&f=1&nofb=1">
-											</label>
-											<label style="padding-right: 30px">
-												<input type="radio" name="music" value="music3">
-												<img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F4.bp.blogspot.com%2F-xQ9o0pfY57A%2FTp5Xt8w4mnI%2FAAAAAAAABSg%2FkptgQ82GvhM%2Fs1600%2F1.jpg&f=1&nofb=1">
-											</label>
-											<label style="padding-right: 30px">
-												<input type="radio" name="music" value="music4">
-												<img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.hotactresslook.com%2Fwp-content%2Fuploads%2F2017%2F09%2FLindsey-Stirling-huge-boobs.jpg&f=1&nofb=1">
-											</label>
-										</div>
+													<img style="height: 300px;width: 100%" src="<?php echo($music['image_link']);?>"  >
+													<div style="height: 500px;color: pink;width: 100%">
+														<label ><input style="margin-top: 10px;margin-right: 20px" type="radio" name="music" value="<?php echo($music['id']);?>" checked>
+															<p style="position: relative;float: left;color: white;margin-top: 6px;">  <?php echo($music['text']);?></p></label>
+														</div>
+													</div>
 
-									</section>
+												<?php } ?>						
+											</section>
+
+
 									<h3 class="page-header page-header icon-subheading">Videography</h3>
 									<p>Premium Vidography provided</p>		
 									<section id="new">

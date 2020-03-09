@@ -54,10 +54,7 @@ $premiums = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 	</script> 
 </head>
 <body>
-	<div class="banner">
-		<?php include 'adminheader.php'?>	
-
-	</div>
+	
 	<!-- banner -->
 	<div class="banner">
 		<?php include 'adminheader.php'?>	

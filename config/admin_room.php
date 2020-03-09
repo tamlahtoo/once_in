@@ -7,23 +7,15 @@ $link = mysqli_connect("localhost", "root", "", "once_in");
 if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
-
-$image = $_FILES['image']['name'];
  
 // Escape user inputs for security
-$tag = mysqli_real_escape_string($link, $_REQUEST['tag']);
+$package = mysqli_real_escape_string($link, $_REQUEST['package']);
 $text = mysqli_real_escape_string($link, $_REQUEST['text']);
-$title = mysqli_real_escape_string($link, $_REQUEST['title']);
-$target = "../images/".basename($image);
+$image_link = mysqli_real_escape_string($link, $_REQUEST['image_link']);
 // Attempt insert query execution
-$sql = "INSERT INTO posts (tag,text,image,title) VALUES ('$tag', '$text','$image','$title')";
+$sql = "INSERT INTO room (package,text,image_link) VALUES ('$package', '$text','$image_link')";
 if(mysqli_query($link, $sql)){
-	if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-  		$msg = "Image uploaded successfully";
-  		header('Location: ../adminblog.php');
-  	}else{
-  		$msg = "Failed to upload image";
-  	}
+	
 } else{
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }

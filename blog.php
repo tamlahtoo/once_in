@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <?php
 include 'config/database.php';
 
-$sql = 'SELECT * FROM posts';
+$sql = 'SELECT * FROM posts order by id desc';
 
 $result = mysqli_query($link, $sql);
 
@@ -77,9 +77,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									$day =date("d",strtotime($created));
 									$month =date("F",strtotime($created));
 									$text = $item['text'];
-
-
-
+									$image = $item['image'];
+									$title = $item['title'];
 								?>
 								<div class="w3-blog-left-grid">
 									<div class="w3ls-blog-leftl">
@@ -87,12 +86,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<a href="#"><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i><?php echo "$year"; ?> </a>
 									</div>
 									<div class="w3ls-blog-leftr">
-										<a href="single.html"><img src="images/p1.jpg" alt=" " class="img-responsive" /></a>
-										<p><?php echo substr($text, 0, 200); ?>.....</p>
+										<h3 style="margin-bottom: 20px;margin-left: 20px"><?php echo "$title";   ?></h3>
+										<a href="single.php"><img src="<?php echo "images/$image"; ?>" alt=" " class="img-responsive" /></a>
 										
 										<br>
 										<div class="more">
-											<a href="single.html">Read More</a>
+											<a href="single.php">Read More</a>
 										</div>
 									</div>
 									<div class="clearfix"> </div>

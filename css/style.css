@@ -1022,6 +1022,8 @@ h3.hdg {
 .bs-docs-example {
   margin: 1em 0;
 }
+
+
 section#tables  p {
  margin-top: 1em;
 }
@@ -2361,12 +2363,18 @@ ul.ab li a:hover{
 
 /* HIDE RADIO */
 [type=radio] { 
-  position: absolute;
-  opacity: 0;
+  float: left;
+  margin-top: 100%;
+  opacity: 100;
   width: 0;
   height: 0;
-
+    /*-webkit-appearance: checkbox; 
+  -moz-appearance: checkbox;    
+  -ms-appearance: checkbox; 
+  background-color: green
+*/
 }
+
 
 /* IMAGE STYLES */
 [type=radio] + img {
@@ -2374,10 +2382,22 @@ ul.ab li a:hover{
   height: 250px;
 }
 
-/* CHECKED STYLES */
-[type=radio]:checked + img {
-  outline: 3px solid #FF1493;
+div.polaroid {
+  width: 250px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  float: left;
+  background:grey;
 }
+
+div.cate{text-align: center;
+    position: relative;
+    float: top;
+}
+/* CHECKED STYLES */
+/*[type=radio]:checked {
+  outline: 3px solid #FF1493;
+}*/
 
 .item{
     width: 100px;

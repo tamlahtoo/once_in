@@ -56,42 +56,10 @@ foreach ($standards as $item) {
 	</div>
 
 	<div style="padding-top: 50px" class="container">
-		<div class="col-md-6 contact-form-left">
-			<?php
-			foreach ($standards as $item) {
-				$created = $item['created_at'];
-				$year =date("Y",strtotime($created));
-				$day =date("d",strtotime($created));
-				$month =date("F",strtotime($created));
-				$text = $item['text'];
-				$title = $item['title'];
-				$image = $item['image'];
-
-
-
-
-				?>
-				<div  class="w3-blog-left-grid">
-
-					<div class="w3ls-blog-leftr">
-						<h3><?php echo "$title"; ?></h3>
-						<a href="single.php"><img src="<?php echo "images/$image" ?>" alt=" " class="img-responsive" /></a>
-						<p><?php echo substr($text, 0, 200); ?>.....</p>
-
-						<br>
-						<div class="more">
-							<a href="single.php">Read More</a>
-						</div>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-
-			<?php }
-			?>
-		</div>
+		
 		<div  style="margin-left: 100px;width: 400px" class="col-md-6 contact-form-right">
 			<div class="contact-form-top">
-				<h3>Send us a message</h3>
+				<h3>Add item in package</h3>
 			</div>
 			<div class="agileinfo-contact-form-grid">
 				<form action="config/admin_post.php" method="POST" enctype="multipart/form-data">

@@ -54,7 +54,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="agileits-banner-info">
 									<h3>Enjoy <span>your best day ever</span></h3>
 									<div class="w3-button">
-										<a href="single.html">More</a>
+										<a href="blog.php">More</a>
 									</div>
 								</div>
 							</li>
@@ -62,7 +62,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="agileits-banner-info">
 									<h3>Create <span>your special day</span></h3>
 									<div class="w3-button">
-										<a href="single.html">More</a>
+										<a href="blog.php">More</a>
 									</div>
 								</div>
 							</li>
@@ -180,7 +180,7 @@ Meanwhile, our dedicated team of editors provides you with the very best wedding
 			<div class="posts-grids">
 				<div class="col-md-4 w3-agile-post-grids">
 					<div class="w3-agile-post-img">
-						<a href="single.html"> 
+						<a href="blog.php"> 
 							<ul>
 								<li>Sept</li>
 								<li>24</li>
@@ -188,13 +188,13 @@ Meanwhile, our dedicated team of editors provides you with the very best wedding
 						</a>
 					</div>
 					<div class="w3-agile-post-info">
-						<h4><a href="single.html">Quisque a rhoncus tortor</a></h4>
+						<h4><a href="blog.php">Quisque a rhoncus tortor</a></h4>
 						<p>Suspendisse in nisl at ipsum molestie dignissim. Pellentesque est nisi, blandit eget aliquam sed, consequat nec risus.</p>
 					</div>
 				</div>
 				<div class="col-md-4 w3-agile-post-grids">
 					<div class="w3-agile-post-img w3-agile-post-img1">
-						<a href="single.html"> 
+						<a href="blog.php"> 
 							<ul>
 								<li>Oct</li>
 								<li>06</li>
@@ -202,13 +202,13 @@ Meanwhile, our dedicated team of editors provides you with the very best wedding
 						</a>
 					</div>
 					<div class="w3-agile-post-info">
-						<h4><a href="single.html">Suspendisse in nisl at ipsum</a></h4>
+						<h4><a href="blog.php">Suspendisse in nisl at ipsum</a></h4>
 						<p>Suspendisse in nisl at ipsum molestie dignissim. Pellentesque est nisi, blandit eget aliquam sed, consequat nec risus.</p>
 					</div>
 				</div>
 				<div class="col-md-4 w3-agile-post-grids">
 					<div class="w3-agile-post-img w3-agile-post-img2">
-						<a href="single.html"> 
+						<a href="blog.php"> 
 							<ul>
 								<li>Nov</li>
 								<li>17</li>
@@ -216,7 +216,7 @@ Meanwhile, our dedicated team of editors provides you with the very best wedding
 						</a>
 					</div>
 					<div class="w3-agile-post-info">
-						<h4><a href="single.html">Mauris pellentesque ultricies</a></h4>
+						<h4><a href="blog.php">Mauris pellentesque ultricies</a></h4>
 						<p>Suspendisse in nisl at ipsum molestie dignissim. Pellentesque est nisi, blandit eget aliquam sed, consequat nec risus.</p>
 					</div>
 				</div>
