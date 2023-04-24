@@ -1,4 +1,4 @@
-<!--A Design by W3layouts
+<!-- <!--A Design by W3layouts
 Author: W3layout
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -221,4 +221,4 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</script>
 <!-- //here ends scrolling icon -->
 </body>	
-</html>
+</html> -->

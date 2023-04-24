@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
@@ -62,4 +62,4 @@
 <?php include 'includes/footer.php'?>
 
 </body>
-</html>
+</html> -->

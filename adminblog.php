@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 include 'config/database.php';
 
 $sql = 'SELECT * FROM posts order by id desc';
@@ -121,4 +121,4 @@ foreach ($standards as $item) {
 </body>
 </html>
 
-
+ -->
